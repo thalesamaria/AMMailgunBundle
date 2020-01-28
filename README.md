@@ -10,7 +10,7 @@
 ```sh
 $ cd plugins
 
-$ git clone https://github.com/moskoweb/AMNameSanitizerBundle.git
+$ git clone https://github.com/moskoweb/AMMailgunBundle.git
 ```
 
 Limpe o cache rodando o seguinte comando na pasta raíz do seu Mautic:

@@ -1,38 +1,28 @@
 <?php
 
-/*
- * @copyright   2019 Arrowfunxtion. All rights reserved
- * @author      Muhammad Azamuddin<mas.azamuddin@gmail.com>
- *
- * @link        http://arrowfunxtion.com/international
- *
- * @license     GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
- */
-
-namespace MauticPlugin\AFMailgunBundle\Model;
+namespace MauticPlugin\AMMailgunBundle\Model;
 
 use Mautic\EmailBundle\Model\TransportType as TransportTypeBase;
 
 class TransportType extends TransportTypeBase
 {
-
     /**
      * @var array
      */
     private $transportTypes = [
-        'mautic.transport.amazon' => 'mautic.email.config.mailer_transport.amazon',
-        'mautic.transport.mailgun' => 'mauticplugin.af.mailgun.config.mailer_transport.mailgun',
+        'mautic.transport.amazon'       => 'mautic.email.config.mailer_transport.amazon',
+        'mautic.transport.mailgun'      => 'mauticplugin.am.mailgun.config.mailer_transport.mailgun',
         'mautic.transport.elasticemail' => 'mautic.email.config.mailer_transport.elasticemail',
-        'gmail' => 'mautic.email.config.mailer_transport.gmail',
-        'mautic.transport.mandrill' => 'mautic.email.config.mailer_transport.mandrill',
-        'mautic.transport.mailjet' => 'mautic.email.config.mailer_transport.mailjet',
-        'smtp' => 'mautic.email.config.mailer_transport.smtp',
-        'mail' => 'mautic.email.config.mailer_transport.mail',
-        'mautic.transport.postmark' => 'mautic.email.config.mailer_transport.postmark',
-        'mautic.transport.sendgrid' => 'mautic.email.config.mailer_transport.sendgrid',
+        'gmail'                         => 'mautic.email.config.mailer_transport.gmail',
+        'mautic.transport.mandrill'     => 'mautic.email.config.mailer_transport.mandrill',
+        'mautic.transport.mailjet'      => 'mautic.email.config.mailer_transport.mailjet',
+        'smtp'                          => 'mautic.email.config.mailer_transport.smtp',
+        'mail'                          => 'mautic.email.config.mailer_transport.mail',
+        'mautic.transport.postmark'     => 'mautic.email.config.mailer_transport.postmark',
+        'mautic.transport.sendgrid'     => 'mautic.email.config.mailer_transport.sendgrid',
         'mautic.transport.sendgrid_api' => 'mautic.email.config.mailer_transport.sendgrid_api',
-        'sendmail' => 'mautic.email.config.mailer_transport.sendmail',
-        'mautic.transport.sparkpost' => 'mautic.email.config.mailer_transport.sparkpost',
+        'sendmail'                      => 'mautic.email.config.mailer_transport.sendmail',
+        'mautic.transport.sparkpost'    => 'mautic.email.config.mailer_transport.sparkpost',
     ];
 
     /**

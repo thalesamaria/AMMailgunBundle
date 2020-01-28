@@ -1,34 +1,39 @@
-# Mailgun plugin for Mautic (AFMailgun)
+# Mailgun Mautic Plugin
 
-## Installation
+### Requisitos
 
-- upload the contents in this repo to mautic instalation `plugins/AFMailgunBundle`
-- remove cache `sudo rm -rf app/cache/*`
-- go to mautic settings > plugins > click `Install / Upgrade Plugin`
-- done.
+- Mautic v2.15 ou superior;
+- PHP v7.0 ou superior.
 
-## Usage
+### Instalação
 
-- Choose Mailgun as the mail service, in mautic mail configuration > Email Settings.
-- Enter your username e.g postmaster@mg.yourmailgundomain.com and the password (you can get these information on mailgun dashboard)
-- Save / Apply
+```sh
+$ cd plugins
 
-### Add webhook URL to mailgun
+$ git clone https://github.com/moskoweb/AMNameSanitizerBundle.git
+```
 
-Add `https://yourmautic.com/mailer/mailgun/callback` in the mailgun webhook for your selected events.
+Limpe o cache rodando o seguinte comando na pasta raíz do seu Mautic:
 
-Now your mautic will be able to send through mailgun and track email events such as bounce, failed, unsubscribe, spam according to the webhook you set in mailgun.
+```sh
+$ php app/console cache:clear && chmod -R g+rw * && php app/console mautic:assets:generate && php app/console mautic:plugins:reload
+```
 
-### Screenshots
+Acessea página de plugins pelo painel do Mautic e clique no botão **Instalar/Atualizar plugins**. 
 
-![plugin-screen](./Assets/plugin-screen.png)
+## Como Usar
 
-![stat](./Assets/stat.png)
+- Selecione o serviço de envio de emails 'Mailgun' em Configurações > Configurações de Email.
+- Insira seu usuário e senha que pode encontrar na sua conta Mailgun
+    + postmaster@mg.yourmailgundomain.com
+- Salvar / Aplicar
 
-## Author
+### Webhook de Callback
 
-Muhammad Azamuddin
-
-mas.azamuddin@gmail.com
-
-https://arrowfunxtion.com
+Adicione a URL a seguir para todos os eventos a seguir no Mailgun:
+- URL: `https://yourmautic.com/mailer/mailgun/callback`.
+- Eventos:
+    + complained
+    + permanent_fail
+    + temporary_fail
+    + unsubscribed

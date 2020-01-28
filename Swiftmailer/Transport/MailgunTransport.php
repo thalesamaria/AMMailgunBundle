@@ -1,15 +1,6 @@
 <?php
 
-/*
- * @copyright   2019 Arrowfunxtion. All rights reserved
- * @author      Muhammad Azamuddin<mas.azamuddin@gmail.com>
- *
- * @link        http://arrowfunxtion.com/international
- *
- * @license     GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
- */
-
-namespace MauticPlugin\AFMailgunBundle\Swiftmailer\Transport;
+namespace MauticPlugin\AMMailgunBundle\Swiftmailer\Transport;
 
 use Mautic\EmailBundle\Model\TransportCallback;
 use Mautic\EmailBundle\Swiftmailer\Transport\CallbackTransportInterface;
@@ -107,12 +98,12 @@ class MailgunTransport extends \Swift_SmtpTransport implements CallbackTransport
         }
 
         foreach ($events as $event) {
-            if (!in_array($event['event'], ['bounce', 'rejected', 'complained', 'unsubscribed', 'permanent_fail', 'failed'])) {
+            if ( ! in_array($event['event'], ['bounce', 'rejected', 'complained', 'unsubscribed', 'permanent_fail', 'failed'])) {
                 continue;
             }
 
             if ($event['event'] === 'bounce' || $event['event'] === 'rejected' || $event['event'] === 'permanent_fail' || $event['event'] === 'failed') {
-                $reason = $event['error_related_to'] . ': ' . $event['error'];
+                $reason = $event['recipient'] . ': ' . $event['reason'];
                 $type = DoNotContact::BOUNCED;
             } elseif ($event['event'] === 'complained') {
                 $reason = 'User reported email as spam, source: ' . $event['source'];

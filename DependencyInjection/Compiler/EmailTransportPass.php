@@ -1,15 +1,6 @@
 <?php
 
-/*
- * @copyright   2019 Arrowfunxtion. All rights reserved
- * @author      Muhammad Azamuddin<mas.azamuddin@gmail.com>
- *
- * @link        http://arrowfunxtion.com/international
- *
- * @license     GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
- */
-
-namespace MauticPlugin\AFMailgunBundle\DependencyInjection\Compiler;
+namespace MauticPlugin\AMMailgunBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -31,7 +22,7 @@ class EmailTransportPass implements CompilerPassInterface
         $container
             ->register(
                 'mautic.email.transport_type',
-                'MauticPlugin\AFMailgunBundle\Model\TransportType'
+                'MauticPlugin\AMMailgunBundle\Model\TransportType'
             );
     }
 }

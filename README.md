@@ -10,13 +10,28 @@
 ```sh
 $ cd plugins
 
-$ git clone https://github.com/moskoweb/AMMailgunBundle.git
+$ git clone https://github.com/thalesamaria/AMMailgunBundle.git
 ```
 
-Limpe o cache rodando o seguinte comando na pasta raíz do seu Mautic:
-
+Limpe o cache rodando os seguintes comandos na pasta raíz do seu Mautic:
 ```sh
-$ php app/console cache:clear && chmod -R g+rw * && php app/console mautic:assets:generate && php app/console mautic:plugins:reload
+$ php app/console cache:clear
+```
+```sh
+$ php app/console cache:warmup
+```
+O comando abaixo reflete a maioria das instalações do Mautic no **Debian/Ubuntu utilizando Apache ou NGINX**:
+```sh
+$ chown -R www-data:www-data .
+```
+```sh
+$ chmod -R g+rw .
+```
+```sh
+php app/console mautic:assets:generate
+```
+```sh
+php app/console mautic:plugins:reload
 ```
 
 Acessea página de plugins pelo painel do Mautic e clique no botão **Instalar/Atualizar plugins**. 
